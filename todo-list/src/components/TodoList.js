@@ -42,7 +42,7 @@ class TodoList extends Component {
                     <input 
                         onChange={this.handleChange}
                         value={this.state.name}/>
-                    <button onClick={this.handleInsert}>추가</button>
+                    <button onClick={this.handleInsert}>ㅌ</button>
                     <ul>
                         {nameList}
                     </ul>
