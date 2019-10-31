@@ -9,9 +9,20 @@ const Profiles = () => {
             <ul>
                 <li>
                     <Link to="/profiles/ironman">ironman</Link>
+                </li>
+                <li>
                     <Link to="/profiles/captainamerica">captainamerica</Link>
                 </li>
-            </ul>            
+            </ul>
+
+            <Route
+                path="/profiles"
+                exact
+                render={() => <div>사용자를 선택해 주세요.</div>}
+            />
+            <Route path="/profiles/:username" component={Profile} />
         </div>
     );
 };
+
+export default Profiles;
