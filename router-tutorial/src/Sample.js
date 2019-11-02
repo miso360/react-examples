@@ -10,6 +10,27 @@ class HistorySample extends Component {
     handleGoHome = () => {
         this.props.history.push('/');
     };
+
+    componentDidMount() {
+        //페이지 변화가 생길때 질문
+        this.unblock = this.props.history.block('떠나실 건가요??');
+    }
+
+    componentWillUnmount() {
+        // 컴포넌트가 언마운트되면 질문을 멈춤
+        if (this.unblock) {
+            this.unblock();
+        }
+    }    
+
+    render() {
+        return (
+            <div>
+                <button onClick={this.handleGoBack}>뒤로</button>
+                <button onClick={this.handleGoHome}>홈으로</button>
+            </div>
+        );
+    }
 }
 
 export default HistorySample;
