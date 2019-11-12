@@ -32,7 +32,7 @@ const NewsItemBlock = styled.div`
 `;
 
 const NewsItem = ({ article }) => {
-    console.log("### article => "+JSON.stringify(article));
+    // console.log("### article => "+JSON.stringify(article));
     const { title, description, url, urlToImage } = article;
     return (
        <NewsItemBlock>
