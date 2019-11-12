@@ -25,15 +25,44 @@ const sampleArticle = {
 
 const NewsList = () => {
     const [articles, setArticles] = useState(null);
-    const [loding, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        console.log("### useEffect()");
+        const fetchData = async () => {
+            setLoading(true);
+            try {
+                const response = await axios.get(
+                    'https://newsapi.org/v2/top-headlines?country=kr&apiKey=66a50d56ff854b35a789ddcaf933be58'
+                    ,
+                );
+
+                setArticles(response.data.articles);
+            } catch (e) {
+                console.log(e);
+            }
+
+            setLoading(false);
+        };
+        fetchData();
+    }, []);
+
+    // 대기 중일 때
+    if (loading) {
+        console.log("### loding");
+        return <NewsListBlock>대기 중...</NewsListBlock>;
+    }
+
+    // 아직 아직 articles 값이 설정되지 않았을 때
+    if (!articles) {
+        return null;
+    }
 
     return (
         <NewsListBlock>
-            <NewsItem article={sampleArticle} />
-            <NewsItem article={sampleArticle} />
-            <NewsItem article={sampleArticle} />
-            <NewsItem article={sampleArticle} />
-            <NewsItem article={sampleArticle} />
+            {articles.map(article => (
+                <NewsItem key={article.url} article={article} />
+            ))}
         </NewsListBlock>
     );
 };
