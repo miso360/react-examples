@@ -26,8 +26,10 @@ const NewsList = ({category}) => {
         const fetchData = async () => {
             setLoading(true);
             try {
+                const query = category === 'all' ? '' : `&category=${category}`;
+                console.log("### query => "+query);
                 const response = await axios.get(
-                    'https://newsapi.org/v2/top-headlines?country=kr&apiKey=66a50d56ff854b35a789ddcaf933be58'
+                    `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=66a50d56ff854b35a789ddcaf933be58`
                     ,
                 );
 
@@ -39,7 +41,7 @@ const NewsList = ({category}) => {
             setLoading(false);
         };
         fetchData();
-    }, []);
+    }, [category]);
 
     // 대기 중일 때
     if (loading) {
