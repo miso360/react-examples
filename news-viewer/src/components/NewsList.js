@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import NewsItem from './NewsItem';
 import axios from 'axios';
+import usePromise from '../lib/usePromise';
 
 const NewsListBlock = styled.div`
     box-sizing: border-box;
@@ -53,6 +54,7 @@ const NewsList = ({category}) => {
     if (!articles) {
         return null;
     }
+    
 
     return (
         <NewsListBlock>
@@ -62,5 +64,7 @@ const NewsList = ({category}) => {
         </NewsListBlock>
     );
 };
+
+
 
 export default NewsList;
