@@ -9,6 +9,7 @@ const initialState = {
 };
 
 function counter(state = initialState, actions) {
+    console.log("actions.type=>"+actions.type);
     switch (actions.type) {
         case INCREASE:
             return {
