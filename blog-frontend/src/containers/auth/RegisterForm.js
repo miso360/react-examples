@@ -36,7 +36,7 @@ const RegisterForm = () => {
         <AuthForm
             type="register"
             form={form}
-            onChange={onChange()}
+            onChange={onChange}
             onSubmit={onSubmit}
         />
     );
