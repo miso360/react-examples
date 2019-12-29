@@ -76,7 +76,7 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
                     placeholder="비밀번호"
                     type="password"
                     onChange={onChange}
-                    value={form.passwordConfirm}
+                    value={form.password}
                 />
                 {type === 'register' && (
                     <StyledInput
@@ -84,6 +84,8 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
                         name="passwordConfirm"
                         placeholder="비밀번호 확인"
                         type="password"
+                        onChange={onChange}
+                        value={form.passwordConfirm}
                     />
                 )}
                 <ButtonWithMarginTop cyan fullWidth style={{ marginTop: '1rem' }}>

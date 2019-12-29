@@ -25,6 +25,7 @@ const RegisterForm = () => {
 
     // 폼 등록 이벤트 핸들러
     const onSubmit = e => {
+        console.log("### onSubmit");
         e.preventDefault();
 
         const {username, password, passwordConfirm} = form;
